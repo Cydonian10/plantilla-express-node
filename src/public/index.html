@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form id="miFormulario">
+    <div>
+      <input type="text" id="textMensaje" placeholder="Mensaje">
+    </div>
+    <button>Enviar</button>
+  </form>
+
+  <ul id="misMensajes">
+
+  </ul>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  const socket = io("http://localhost:8080")
+
+  const formulario = document.querySelector("#miFormulario")
+  const mensajes = document.querySelector("#misMensajes")
+  const txtMensaje = document.querySelector("#textMensaje")
+
+  formulario.addEventListener("submit", (ev) => {
+    ev.preventDefault()
+
+    const nuevoMensaje = txtMensaje.value
+
+
+    socket.emit("message-to-server", {
+      message: nuevoMensaje
+    })
+
+  })
+
+  socket.on("message-from-server", (data) => {
+    mensajes.innerHTML += `<li>${data.message}</li>`
+  })
+</script>
+
+</html>

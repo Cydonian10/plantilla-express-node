@@ -1,0 +1,41 @@
+version: "3.8"
+#postgres
+
+# services:
+#   postgres:
+#     image: postgres:13
+#     environment:
+#       - POSTGRES_DB=almace_db
+#       - POSTGRES_USER=root
+#       - POSTGRES_PASSWORD=123456
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - ./postgres_data:/var/lib/postgresql/data
+
+# Mysql
+
+# services:
+#   mariadb:
+#     image: mariadb
+#     restart: always
+#     environment:
+#       - MARIADB_ROOT_PASSWORD=123456
+#       - MARIADB_DATABASE=mysql_crud_gastos
+#     ports:
+#       - "3307:3306"
+#     volumes:
+#       - ./my/own/datadir:/var/lib/mysql
+
+# mongo
+
+# services:
+#   mongo:
+#     image: mongo:4.4
+#     environment:
+#       MONGO_INITDB_ROOT_USERNAME: root
+#       MONGO_INITDB_ROOT_PASSWORD: root
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - ./mongo_data:/data/db
